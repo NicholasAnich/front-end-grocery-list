@@ -1,17 +1,33 @@
 import React from 'react'
-import groceriesData from '../data/groceriesData.js'
+import GroceryItem from './GroceryItem.jsx'
+
 
 const GroceryList = (props) => (
-  // <li>
-    <App
+  <div>
     {props.list.map((element, index) =>
-      <div>
-        {element.name}
-      </div>
+      <GroceryItem
+      item={element.name}
+      quantity={element.quantity}
+      key={index}
+      />
     )}
-    />
-  // </li>
+  </div>
 
 )
 
 export default GroceryList
+      // <li>
+      //   {element.name} {element.quantity}
+      //   key={index}
+      // </li>
+
+
+
+  // <li>
+  //   {props.list.map((element, index) =>
+  //     <li>
+  //       {element.name} {element.quantity}
+  //       key={index}
+  //     </li>
+  //     )}
+  // </li>
