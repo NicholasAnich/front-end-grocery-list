@@ -6,8 +6,7 @@ const GroceryList = (props) => (
   <div>
     {props.list.map((element, index) =>
       <GroceryItem
-      item={element.name}
-      quantity={element.quantity}
+      item={element}
       key={index}
       />
     )}
@@ -16,18 +15,3 @@ const GroceryList = (props) => (
 )
 
 export default GroceryList
-      // <li>
-      //   {element.name} {element.quantity}
-      //   key={index}
-      // </li>
-
-
-
-  // <li>
-  //   {props.list.map((element, index) =>
-  //     <li>
-  //       {element.name} {element.quantity}
-  //       key={index}
-  //     </li>
-  //     )}
-  // </li>

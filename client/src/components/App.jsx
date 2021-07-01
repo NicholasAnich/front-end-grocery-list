@@ -8,11 +8,17 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      // groceries: groceriesData,
+      groceries: groceriesData,
+      item: '',
+      quantity: ''
 
     };
-
   }
+
+  itemChange(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
 
 
 
@@ -22,14 +28,29 @@ class App extends React.Component {
       <img src="grocery-bags.png" />
       <h1>Grocery List</h1>
       <form>
+
+
         <label> Item
-          <input name="item" value="" />
-          <GroceryItem />
+          <input
+          name="item"
+          value={this.state.item}
+          onChange={this.itemChange}
+          />
         </label>
+
+
         <label> Quantity
-          <input name="quantity" value="" />
+          <input
+          name="quantity"
+          value={this.state.quantity}
+          onChange={this.itemChange}
+          />
         </label>
-        <button>Add Grocery</button>
+
+
+
+        <button onClick={'hello'}>Add Grocery</button>
+
         <div className="groceries">
           <GroceryList
           list={groceriesData}

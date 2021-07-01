@@ -2,7 +2,7 @@ import React from 'react'
 
 const GroceryItem = (props) => (
   <li>
-    {props.item} {props.quantity}
+    {props.item.name} {props.item.quantity}
   </li>
 
 )
