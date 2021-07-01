@@ -16,10 +16,12 @@ class App extends React.Component {
 
     this.itemChange = this.itemChange.bind(this);
     this.itemSubmit = this.itemSubmit.bind(this);
+
   }
 
   itemChange(e) {
     this.setState({[e.target.name]: e.target.value});
+
   }
 
   itemSubmit(e) {
@@ -28,12 +30,14 @@ class App extends React.Component {
     var newItem = {
       name: this.state.item,
       quantity: this.state.quantity
+
     }
 
     this.setState({
       groceryItems: [...this.state.groceryItems, newItem],
       item: '',
       quantity: ''
+
     })
 
   }
@@ -43,10 +47,7 @@ class App extends React.Component {
     <div>
       <img src="grocery-bags.png" />
       <h1>Grocery List</h1>
-
       <form onSubmit={this.itemSubmit}>
-
-
         <label> Item
           <input
           name="item"
@@ -54,8 +55,6 @@ class App extends React.Component {
           onChange={this.itemChange}
           />
         </label>
-
-
         <label> Quantity
           <input
           name="quantity"
@@ -63,19 +62,15 @@ class App extends React.Component {
           onChange={this.itemChange}
           />
         </label>
-
-
-
         <button>Add Grocery</button>
-
         <div className="groceries">
           <GroceryList
           list={this.state.groceryItems}
           />
         </div>
-
       </form>
     </div>
+
   )
   }
 
