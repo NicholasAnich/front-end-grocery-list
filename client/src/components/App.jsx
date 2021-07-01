@@ -1,31 +1,60 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
-import groceriesData from '../data/groceriesData.js'
+import groceriesData from '../data/groceriesData.js';
 import GroceryList from './GroceryList.jsx';
 
-const App = () => (
-  <div>
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+
+    };
+
+  }
+
+
+  render() {
+    return (
+      <div>
     <img src="grocery-bags.png" />
     <h1>Grocery List</h1>
     <form>
       <label> Item
         <input name="item" value="" />
       </label>
-      {/* <Item /> */}
       <label> Quantity
         <input name="quantity" value="" />
       </label>
-      {/* <Quantity /> */}
       <button>Add Grocery</button>
       <ul className="groceries">
-        <GroceryList />
+        <GroceryList
+        list={groceriesData}
+        />
       </ul>
     </form>
   </div>
-);
+  )
+  }
+
+};
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // *** ORIGINGAL CODE ***

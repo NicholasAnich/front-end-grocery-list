@@ -1,11 +1,17 @@
 import React from 'react'
+import groceriesData from '../data/groceriesData.js'
 
 const GroceryList = (props) => (
-  <ul>
-    <li>milk</li>
-    <li>cheese</li>
-    <li>other</li>
-  </ul>
+  // <li>
+    <App
+    {props.list.map((element, index) =>
+      <div>
+        {element.name}
+      </div>
+    )}
+    />
+  // </li>
+
 )
 
 export default GroceryList
