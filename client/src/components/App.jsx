@@ -8,26 +8,43 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      groceries: groceriesData,
+      groceryItems: groceriesData,
       item: '',
       quantity: ''
 
     };
+
+    this.itemChange = this.itemChange.bind(this);
+    this.itemSubmit = this.itemSubmit.bind(this);
   }
 
   itemChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
 
+  itemSubmit(e) {
+    e.preventDefault();
 
+    var newItem = {
+      name: this.state.item,
+      quantity: this.state.quantity
+    }
 
+    this.setState({
+      groceryItems: [...this.state.groceryItems, newItem],
+      item: '',
+      quantity: ''
+    })
+
+  }
 
   render() {
     return (
     <div>
       <img src="grocery-bags.png" />
       <h1>Grocery List</h1>
-      <form>
+
+      <form onSubmit={this.itemSubmit}>
 
 
         <label> Item
@@ -49,13 +66,14 @@ class App extends React.Component {
 
 
 
-        <button onClick={'hello'}>Add Grocery</button>
+        <button>Add Grocery</button>
 
         <div className="groceries">
           <GroceryList
-          list={groceriesData}
+          list={this.state.groceryItems}
           />
         </div>
+
       </form>
     </div>
   )
